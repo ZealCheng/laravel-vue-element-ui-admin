@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "npm run development",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch-poll": "npm run watch -- --watch-poll",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "npm run production",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "devDependencies": {
+    "admin-lte": "^2.3.11",
+    "axios": "^0.16.2",
+    "bootstrap-sass": "^3.3.7",
+    "bootstrap3-dialog": "^1.35.3",
+    "cross-env": "^5.0.1",
+    "css-loader": "^0.26.4",
+    "element-ui": "^1.2.8",
+    "icheck": "^1.0.2",
+    "jquery": "^3.1.1",
+    "jstree": "^3.3.4",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.4.2",
+    "vue-core-image-upload": "^2.0.5",
+    "vue-loader": "^11.3.4",
+    "vue-msgbox": "^0.2.14",
+    "vue-route": "^1.5.1"
+  },
+  "dependencies": {
+    "laravel-mix": "^1.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "font-awesome": "^4.7.0",
+    "path-to-regexp": "^2.0.0",
+    "scss-loader": "0.0.1",
+    "style-loader": "^0.18.2",
+    "vue-router": "^2.7.0",
+    "vuex": "^2.4.0",
+    "vue": "^2.4.2",
+    "vue-core-image-upload": "^2.0.5",
+    "vue-loader": "^11.3.4",
+    "vue-msgbox": "^0.2.14"
+  }
+}
