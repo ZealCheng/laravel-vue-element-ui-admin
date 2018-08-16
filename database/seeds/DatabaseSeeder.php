@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
 //        $this->call(AdminMenusTableSeeder::class);
         // $this->call(UsersTableSeeder::class);
         \Illuminate\Support\Facades\DB::select("
-INSERT INTO `exp_admin_menus` (`id`, `pid`, `name`, `group_name`, `menu_type`, `language`, `hidden`, `component`, `icon`, `slug`, `url`, `description`, `sort`, `deleted_at`, `created_at`, `updated_at`) VALUES
+INSERT INTO `admin_menus` (`id`, `pid`, `name`, `group_name`, `menu_type`, `language`, `hidden`, `component`, `icon`, `slug`, `url`, `description`, `sort`, `deleted_at`, `created_at`, `updated_at`) VALUES
 (1, 0, '控制台', NULL, 1, 'zh', 0, 'Home', 'fa fa-laptop', 'admin-systems-index', '/', '控制台', 0, NULL, '2017-09-06 00:11:45', '2017-09-07 18:57:51'),
 (2, 0, '系统管理', NULL, 1, 'zh', 0, 'Home', 'fa el-icon-setting', 'admin-systems-manage', '/user*, /role*, /permission*, /menu*', '系统管理', 0, NULL, '2017-09-06 00:11:45', '2017-09-06 00:11:45'),
 (3, 2, '用户管理', '用户-角色-权限管理', 1, 'zh', 0, 'User', NULL, 'admin-users', '/user', NULL, 0, NULL, '2017-09-06 00:11:45', '2017-09-07 18:41:02'),
@@ -37,7 +37,7 @@ INSERT INTO `exp_admin_menus` (`id`, `pid`, `name`, `group_name`, `menu_type`, `
 (16, 6, '更新菜单', NULL, 2, 'zh', 1, NULL, NULL, 'admin-menus-edit', NULL, NULL, 2, NULL, '2017-09-07 18:43:23', '2017-09-07 18:43:23'),
 (17, 6, '删除菜单', NULL, 2, 'zh', 0, NULL, NULL, 'admin-menus-remove', NULL, NULL, 3, NULL, '2017-09-07 18:43:54', '2017-09-07 18:58:48');");
 
-        \Illuminate\Support\Facades\DB::select("INSERT INTO `exp_admin_permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+        \Illuminate\Support\Facades\DB::select("INSERT INTO `admin_permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'create-post', 'Create Posts', 'create new blog posts', '2017-09-06 00:11:44', '2017-09-06 00:11:44'),
 (2, 'edit-user', 'Edit Users', 'edit existing users', '2017-09-06 00:11:44', '2017-09-06 00:11:44'),
 (3, 'admin-systems-index', '控制台', '控制台', '2017-09-06 00:14:20', '2017-09-06 00:14:20'),

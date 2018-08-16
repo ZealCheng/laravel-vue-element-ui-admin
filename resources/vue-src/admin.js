@@ -46,7 +46,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     //NProgress.start();
     if (to.path == '/login') {
-        axios.post(`http://admin.ladmin.me/logout`).then((result) => {
+        axios.post(`/logout`).then((result) => {
             sessionStorage.removeItem('user');
         });
     }

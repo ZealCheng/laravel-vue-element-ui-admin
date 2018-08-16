@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-let base = 'http://admin.ladmin.me';
+// let base = 'http://admin.ladmin.me';
+let base = '';
 export const getMenuList = params => { return axios.get(`${base}/basic/getMenuList`, {params: params}).then(res => res.data); };
 
 export const getMenusListForVueRouter = params => { return axios.get(`${base}/basic/getMenusListForVueRouter`, {params: params}).then(res => res.data); };

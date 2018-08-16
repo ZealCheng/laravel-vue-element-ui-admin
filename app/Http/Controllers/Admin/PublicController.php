@@ -37,8 +37,9 @@ class PublicController extends AdminController
      * 每个继承admin控制器的方法需要声明该控制器的服务处理者
      * @return  \App\Repositories\Admin\InterAdminRepository;
      */
-    protected function getServiceRepositories():  \App\Repositories\Admin\InterAdminRepository
+    protected function getServiceRepositories()
     {
+        return \App\Repositories\Admin\InterAdminRepository;
         // TODO: Implement setServiceRepositories() method.
     }
 }

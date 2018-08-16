@@ -30,7 +30,7 @@ class UserRepository extends AdminRepository implements InterAdminRepository
      * @param Request $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getPaginateData(Request $request): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getPaginateData(Request $request)
     {
         $pageSize = $request->input('pageSize', config('admin.systems.page_size', 20));
 
@@ -128,7 +128,7 @@ class UserRepository extends AdminRepository implements InterAdminRepository
      * 获取当前登录用户信息
      * @return mixed
      */
-    public function getCurrentLogonUserInfo() : User
+    public function getCurrentLogonUserInfo()
     {
         return auth()->guard('admin')->user();
     }

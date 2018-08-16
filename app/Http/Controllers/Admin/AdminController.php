@@ -23,7 +23,7 @@ abstract class AdminController extends Controller
      * 每个继承admin控制器的方法需要声明该控制器的服务处理者
      * @return \App\Repositories\Admin\InterAdminRepository
      */
-    abstract protected function getServiceRepositories() : \App\Repositories\Admin\InterAdminRepository;
+    abstract protected function getServiceRepositories();
 
     /**
      * 获取用好列表

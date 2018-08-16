@@ -164,7 +164,7 @@ class MenuRepository extends AdminRepository implements InterAdminRepository
      * @param Request $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getPaginateData(Request $request): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getPaginateData(Request $request)
     {
         $pageSize   = $request->input('pageSize', config('admin.systems.page_size', 20));
         $pid        = $request->input('pid', null);

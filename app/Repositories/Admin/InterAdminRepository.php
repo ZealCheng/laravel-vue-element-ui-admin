@@ -24,7 +24,7 @@ interface InterAdminRepository
      * @param Request $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getPaginateData(Request $request) : \Illuminate\Contracts\Pagination\LengthAwarePaginator;
+    public function getPaginateData(Request $request);
 
     /**
      * 根据id号批量删除

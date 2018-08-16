@@ -39,7 +39,7 @@ class RoleRepository extends AdminRepository implements InterAdminRepository
      * @param Request $request
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
-    public function getPaginateData(Request $request): \Illuminate\Contracts\Pagination\LengthAwarePaginator
+    public function getPaginateData(Request $request)
     {
         return Role::orderBy('id','asc')->paginate();
     }
