@@ -40,7 +40,7 @@
             <el-table-column prop="slug" label="对应权限"  sortable>
             </el-table-column>
             <el-table-column label="操作" width="240">
-                <template scope="scope">
+                <template slot-scope="scope">
                     <el-button size="small" @click="getPageLists(true, scope.row)">查看子菜单</el-button>
                     <el-button size="small" @click="handleEdit(scope.$index, scope.row)" v-if="authorizatioList['admin-menus-edit']">编辑</el-button>
                     <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)" v-if="authorizatioList['admin-menus-remove']">删除</el-button>

@@ -34,7 +34,7 @@
             <el-table-column prop="updated_at" label="更新时间"  sortable>
             </el-table-column>
             <el-table-column label="操作" width="150">
-                <template scope="scope">
+                <template slot-scope="scope">
                     <el-button size="small" @click="handleEdit(scope.$index, scope.row)" v-if="authorizatioList['admin-roles-edit']">编辑</el-button>
                     <el-button type="danger" size="small" @click="handleDel(scope.$index, scope.row)" v-if="authorizatioList['admin-roles-remove']">删除</el-button>
                 </template>
