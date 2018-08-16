@@ -17,8 +17,7 @@ class CreateAdminMenusTable extends Migration
                 $table->increments('id');
                 $table->integer('pid')->default(0)->comment('菜单关系');
                 $table->string('name')->nullable()->comment('菜单名称');
-                $table->string('group_name')->nullable()->comment('分组名');
-                $table->integer('menu_type')->default(1)->comment('类型 1:导航菜单 2:普通按钮');
+                $table->tinyInteger('menu_type')->default(1)->comment('类型 1:导航菜单 2:普通按钮');
                 $table->string('language')->default('zh')->comment('语言包');
                 $table->tinyInteger('hidden')->default('0')->commnet('是否隐藏');
                 $table->string('component')->nullable()->comment('vue组建名称');

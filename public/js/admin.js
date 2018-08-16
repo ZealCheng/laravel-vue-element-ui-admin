@@ -88262,7 +88262,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -88456,22 +88455,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         "slot": "title"
       },
       slot: "title"
-    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm._l((item.children), function(children, groupName) {
+    }, [_vm._v(_vm._s(item.name))])]), _vm._v(" "), _vm._l((item.children), function(child, key) {
       return (item.children) ? _c('el-menu-item-group', {
-        key: groupName
-      }, [_c('span', {
+        key: child.id
+      }, [_c('el-menu-item', {
         attrs: {
-          "slot": "title"
-        },
-        slot: "title"
-      }, [_vm._v(_vm._s(groupName))]), _vm._v(" "), _vm._l((children), function(child, k, i) {
-        return _c('el-menu-item', {
-          key: child.id,
-          attrs: {
-            "index": child.path
-          }
-        }, [_vm._v(_vm._s(child.name))])
-      })], 2) : _vm._e()
+          "index": child.path
+        }
+      }, [_vm._v(_vm._s(child.name))])], 1) : _vm._e()
     })], 2) : _c('el-menu-item', {
       attrs: {
         "index": item.path

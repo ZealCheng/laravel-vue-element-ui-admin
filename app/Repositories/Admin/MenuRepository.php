@@ -39,7 +39,6 @@ class MenuRepository extends AdminRepository implements InterAdminRepository
         }
         Cache::forever('menuList', $list);
         */
-
         if ($request->session()->has('admin_menu_list')) {
             return unserialize($request->session()->get('admin_menu_list'));
         }
@@ -60,7 +59,6 @@ class MenuRepository extends AdminRepository implements InterAdminRepository
             $list[$key]['iconCls'] = $value->icon;
             $list[$key]['leaf'] = false;
             $list[$key]['slug'] = $value->slug;
-            $list[$key]['group_name'] = $value->group_name;
         }
         foreach ($list as $key=>$value) {
             $slug = $value['slug'];
@@ -87,7 +85,7 @@ class MenuRepository extends AdminRepository implements InterAdminRepository
             }
             $menuList[$key]['children'] = [];
             foreach ($value['children'] as $k => $val) {
-                $menuList[$key]['children'][$val['group_name']][$k] = $val;
+                $menuList[$key]['children'][$k] = $val;
             }
         }
 

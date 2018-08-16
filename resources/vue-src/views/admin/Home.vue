@@ -30,9 +30,8 @@
                         <i :class="item.iconCls"></i>
                         <span slot="title">{{item.name}}</span>
                     </template>
-                    <el-menu-item-group v-if="item.children" v-for="(children, groupName) in item.children" :key="groupName">
-                        <span slot="title">{{groupName}}</span>
-                        <el-menu-item :index="child.path" v-for="(child, k, i) in children" :key="child.id">{{child.name}}</el-menu-item>
+                    <el-menu-item-group v-if="item.children" v-for="(child, key) in item.children" :key="child.id">
+                        <el-menu-item :index="child.path">{{child.name}}</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
 
