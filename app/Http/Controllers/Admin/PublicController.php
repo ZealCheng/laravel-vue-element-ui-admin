@@ -18,16 +18,6 @@ class PublicController extends AdminController
      * 后台主页
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request)
-    {
-        return view($this->templetePrefix.'index');
-    }
-
-    public function test()
-    {
-        return view($this->templetePrefix.'test');
-    }
-
     public function home()
     {
         return view($this->templetePrefix.'home');

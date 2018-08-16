@@ -5,7 +5,6 @@ Route::get('/', 'PublicController@home');
 Route::get('login', 'LoginController@login')->name('admin.login');
 Route::post('login', 'LoginController@login')->name('admin.login');
 Route::post('logout', 'LoginController@logout');
-Route::get('test', 'PublicController@test');
 
 //  获取前端菜单展示
 Route::get('basic/getMenuList', 'MenuController@getMenuList');
@@ -31,7 +30,6 @@ Route::group(['middleware' => ['auth.admin:admin']], function ($router) {
     $router->get('/dash', function () {
         echo '你已经登陆';
     });
-    $router->get('index', 'PublicController@index');
 
     //  管理员管理
     $router->get('/user', ['uses'=>'UserController@index']);
@@ -45,6 +43,7 @@ Route::group(['middleware' => ['auth.admin:admin']], function ($router) {
     $router->post('/menu/edit', ['uses'=>'MenuController@postEdit']);
     $router->post('/menu/add', ['uses'=>'MenuController@postAdd']);
 
+    //  角色管理
     $router->get('/role', ['uses'=>'RoleController@index']);
     $router->post('/role/remove', ['uses'=>'RoleController@postRemove']);
     $router->post('/role/edit', ['uses'=>'RoleController@postEdit']);
