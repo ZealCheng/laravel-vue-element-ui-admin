@@ -47447,6 +47447,9 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 // import {requestLogout} from 'api/api';
 
 router.beforeEach(function (to, from, next) {
+    if (to.matched.length === 0) {
+        from.name ? next({ name: from.name }) : next('/');
+    }
     //NProgress.start();
     if (to.path == '/login') {
         __WEBPACK_IMPORTED_MODULE_9_axios___default.a.post('/logout').then(function (result) {

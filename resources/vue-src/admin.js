@@ -44,6 +44,9 @@ const router = new VueRouter({
 // import {requestLogout} from 'api/api';
 
 router.beforeEach((to, from, next) => {
+    if (to.matched.length ===0) {
+        from.name ? next({ name:from.name }) : next('/');
+    }
     //NProgress.start();
     if (to.path == '/login') {
         axios.post(`/logout`).then((result) => {
