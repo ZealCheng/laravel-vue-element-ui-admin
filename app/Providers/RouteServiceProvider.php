@@ -113,7 +113,7 @@ class RouteServiceProvider extends ServiceProvider
         $domain = env('ADMIN_DOMAIN', '');
         $prefix = env('ADMIN_MODULE_PREFIX', '');
 
-        $router = Route::middleware('admin');
+        $router = Route::middleware(['admin', 'cas_auth']);
 
         if (!empty($domain)) {
             $router->domain($domain);

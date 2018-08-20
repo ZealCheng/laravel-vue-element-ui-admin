@@ -48,15 +48,16 @@ router.beforeEach((to, from, next) => {
         from.name ? next({ name:from.name }) : next('/');
     }
     //NProgress.start();
-    if (to.path == '/login') {
-        axios.post(`/logout`).then((result) => {
-            sessionStorage.removeItem('user');
-        });
-    }
-    let user = JSON.parse(sessionStorage.getItem('user'));
-    if (!user && to.path != '/login') {
-        next({ path: '/login' })
-    } else {
+    // if (to.path == '/login') {
+    //     axios.get(`/logout`).then((result) => {
+    //         sessionStorage.removeItem('user');
+    //     });
+    // }
+    // let user = JSON.parse(sessionStorage.getItem('user'));
+    // if (!user) {
+    //     window.location.href="/logout";
+    // }
+    else {
         next()
     }
 });

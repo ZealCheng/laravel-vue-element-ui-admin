@@ -12641,25 +12641,25 @@ module.exports = function (exec) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return getMenuList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getMenuList; });
 /* unused harmony export getMenusListForVueRouter */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return getMenuPermissionList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return getMenuPermissionListByRoleId; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return getRoleListByUserId; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return checkRolePermission; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return requestLogin; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return requestLogout; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return getUserListPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return removeUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return editUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getMenuPermissionList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return getMenuPermissionListByRoleId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return getRoleListByUserId; });
+/* unused harmony export checkRolePermission */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return requestLogin; });
+/* unused harmony export requestLogout */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return getUserListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return removeUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return editUser; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return addUser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getMenuListPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return removeMenu; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return editMenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return getMenuListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return removeMenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return editMenu; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return addMenu; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return getRoleListPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return removeRole; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return editRole; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return getRoleListPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return removeRole; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return editRole; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return addRole; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
@@ -12713,7 +12713,7 @@ var requestLogin = function requestLogin(params) {
 };
 
 var requestLogout = function requestLogout(params) {
-  return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(base + '/logout', params).then(function (res) {
+  return __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(base + '/logout', { params: params }).then(function (res) {
     return res.data;
   });
 };
@@ -47451,17 +47451,18 @@ router.beforeEach(function (to, from, next) {
         from.name ? next({ name: from.name }) : next('/');
     }
     //NProgress.start();
-    if (to.path == '/login') {
-        __WEBPACK_IMPORTED_MODULE_9_axios___default.a.post('/logout').then(function (result) {
-            sessionStorage.removeItem('user');
-        });
-    }
-    var user = JSON.parse(sessionStorage.getItem('user'));
-    if (!user && to.path != '/login') {
-        next({ path: '/login' });
-    } else {
-        next();
-    }
+    // if (to.path == '/login') {
+    //     axios.get(`/logout`).then((result) => {
+    //         sessionStorage.removeItem('user');
+    //     });
+    // }
+    // let user = JSON.parse(sessionStorage.getItem('user'));
+    // if (!user) {
+    //     window.location.href="/logout";
+    // }
+    else {
+            next();
+        }
 });
 
 //  .创建和挂载根实例。通过 router 配置参数注入路由，从而让整个应用都有路由功能
@@ -88105,7 +88106,7 @@ var AdminRouter = {
         component: __WEBPACK_IMPORTED_MODULE_1__views_admin_Home_vue___default.a,
         name: '系统管理',
         iconCls: 'fa el-icon-setting', //图标样式class
-        children: [{ path: '/user', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_basic_AdminUser_vue___default.a, name: '后台用户管理', iconCls: 'el-icon-message' }, { path: '/menu', component: __WEBPACK_IMPORTED_MODULE_5__views_admin_basic_Menu_vue___default.a, name: '后台菜单管理', iconCls: 'el-icon-menu' }, { path: '/role', component: __WEBPACK_IMPORTED_MODULE_6__views_admin_basic_Role_vue___default.a, name: '后台角色管理', iconCls: 'el-icon-menu' }]
+        children: [{ path: '/Team/index', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_basic_AdminUser_vue___default.a, name: '后台用户管理', iconCls: 'el-icon-message' }, { path: '/menu', component: __WEBPACK_IMPORTED_MODULE_5__views_admin_basic_Menu_vue___default.a, name: '后台菜单管理', iconCls: 'el-icon-menu' }, { path: '/role', component: __WEBPACK_IMPORTED_MODULE_6__views_admin_basic_Role_vue___default.a, name: '后台角色管理', iconCls: 'el-icon-menu' }]
     }]
 };
 
@@ -88273,9 +88274,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             abc: 'test',
             isCollapse: true,
 
-            sysName: 'Laravel-Vue-Admin',
-            sysUserName: '',
-            sysUserAvatar: '',
+            sysName: '固生堂运营管理后台',
+            sysUserName: $userInfo.name,
+            sysUserAvatar: '/images/user.jpg',
 
             form: {
                 name: '',
@@ -88307,26 +88308,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //退出登录
         logout: function logout() {
-            var _this2 = this;
-
             var _this = this;
             this.$confirm('确认退出吗?', '提示', {
                 //type: 'warning'
             }).then(function () {
-                _this2.listLoading = true;
-                //NProgress.start();
-                Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["s" /* requestLogout */])({}).then(function (result) {
-                    _this2.listLoading = false;
-                    //NProgress.done();
-                    _this2.$message({
-                        message: result.msg,
-                        type: result.type
-                    });
-                    if (result.code == 0) {
-                        sessionStorage.removeItem('user');
-                        _this.$router.push('/login');
-                    }
-                });
+                window.location.href = "/logout";
             }).catch(function () {});
         },
         //折叠导航栏
@@ -88340,27 +88326,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         //  检测单个或多个按钮的权限验证
         checkRolePermissionByUser: function checkRolePermissionByUser(permissionList) {
-            var _this3 = this;
-
             var params = { permissionList: permissionList };
-            Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["d" /* checkRolePermission */])(params).then(function (result) {
-                _this3.authorizatioList = result.data;
-            });
+
+            for (var p in permissionList) {
+                this.authorizatioList[p] = 1;
+            }
         }
     },
     mounted: function mounted() {
-        var _this4 = this;
-
-        var user = sessionStorage.getItem('user');
-        if (user) {
-            user = JSON.parse(user);
-            this.sysUserName = user.name || '';
-            this.sysUserAvatar = user.avatar || 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png';
-        }
+        var _this2 = this;
 
         //  获取menuList
-        Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["h" /* getMenuList */])({}).then(function (result) {
-            _this4.menuList = result.data;
+        Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["g" /* getMenuList */])({}).then(function (result) {
+            _this2.menuList = result.data;
         });
     }
 });
@@ -88447,12 +88425,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return (item.children) ? _c('el-submenu', {
       key: item.id,
       attrs: {
-        "index": item.path
+        "index": item.request_uri
       }
     }, [_c('template', {
       slot: "title"
     }, [_c('i', {
-      class: item.iconCls
+      class: ['fa', item.css]
     }), _vm._v(" "), _c('span', {
       attrs: {
         "slot": "title"
@@ -88463,15 +88441,15 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         key: child.id
       }, [_c('el-menu-item', {
         attrs: {
-          "index": child.path
+          "index": child.request_uri
         }
       }, [_vm._v(_vm._s(child.name))])], 1) : _vm._e()
     })], 2) : _c('el-menu-item', {
       attrs: {
-        "index": item.path
+        "index": item.request_uri
       }
     }, [_c('i', {
-      class: item.iconCls
+      class: ['fa', item.css]
     }), _vm._v(" "), _c('span', {
       attrs: {
         "slot": "title"
@@ -88591,7 +88569,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             logining: false,
             ruleForm2: {
-                email: 'fengyan@mail.com',
+                email: 'your@mail.com',
                 password: '123456'
             },
             rules2: {
@@ -88616,7 +88594,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     _this2.logining = true;
                     //NProgress.start();
                     var loginParams = { email: _this2.ruleForm2.email, password: _this2.ruleForm2.password };
-                    Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["r" /* requestLogin */])(loginParams).then(function (result) {
+                    Object(__WEBPACK_IMPORTED_MODULE_0__api_api__["q" /* requestLogin */])(loginParams).then(function (result) {
                         _this2.logining = false;
                         //NProgress.done();
                         var code = result.code,
@@ -89024,7 +89002,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
             this.listLoading = true;
             //NProgress.start();
-            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["n" /* getUserListPage */])(params).then(function (result) {
+            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["m" /* getUserListPage */])(params).then(function (result) {
                 if (isNotice != 'undefined' && isNotice) {
                     _this.$message({
                         message: result.data.msg,
@@ -89062,7 +89040,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var params = Object.assign({}, _this2.editForm);
                         params.role = _this2.roleEdit;
                         params.allRole = _this2.roleEditList;
-                        Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["g" /* editUser */])(params).then(function (result) {
+                        Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["f" /* editUser */])(params).then(function (result) {
                             _this2.editLoading = false;
                             //NProgress.done();
                             _this2.$message({
@@ -89135,7 +89113,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.listLoading = true;
                 //NProgress.start();
                 var params = { ids: row.id };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["q" /* removeUser */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["p" /* removeUser */])(params).then(function (result) {
                     _this4.listLoading = false;
                     //NProgress.done();
                     _this4.$message({
@@ -89161,7 +89139,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this5.listLoading = true;
                 //NProgress.start();
                 var params = { ids: ids };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["q" /* removeUser */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["p" /* removeUser */])(params).then(function (result) {
                     _this5.listLoading = false;
                     //NProgress.done();
                     _this5.$message({
@@ -89183,7 +89161,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this6 = this;
 
             //                var that = this;
-            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["l" /* getRoleListByUserId */])({ userId: userId }).then(function (result) {
+            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["k" /* getRoleListByUserId */])({ userId: userId }).then(function (result) {
                 //                    that.roleList = result.data;
                 if (userId == 0) {
                     _this6.roleAddList = result.data;
@@ -89869,7 +89847,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
             this.listLoading = true;
             //NProgress.start();
-            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["i" /* getMenuListPage */])(params).then(function (result) {
+            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["h" /* getMenuListPage */])(params).then(function (result) {
                 if (isNotice != 'undefined' && isNotice) {
                     _this.$message({
                         message: result.data.msg,
@@ -89924,7 +89902,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         var params = Object.assign({}, _this2.editForm);
                         var obj = void 0;
                         if (params.id != 0) {
-                            obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["e" /* editMenu */])(params);
+                            obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["d" /* editMenu */])(params);
                         } else {
                             obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["a" /* addMenu */])(params);
                         }
@@ -89961,7 +89939,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this3.listLoading = true;
                 //NProgress.start();
                 var params = { ids: row.id };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["o" /* removeMenu */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["n" /* removeMenu */])(params).then(function (result) {
                     _this3.listLoading = false;
                     //NProgress.done();
                     _this3.$message({
@@ -89988,7 +89966,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.listLoading = true;
                 //NProgress.start();
                 var params = { ids: ids };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["o" /* removeMenu */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["n" /* removeMenu */])(params).then(function (result) {
                     _this4.listLoading = false;
                     //NProgress.done();
                     _this4.$message({
@@ -90765,7 +90743,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             };
             this.listLoading = true;
             //NProgress.start();
-            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["m" /* getRoleListPage */])(params).then(function (result) {
+            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["l" /* getRoleListPage */])(params).then(function (result) {
                 if (isNotice != 'undefined' && isNotice) {
                     _this.$message({
                         message: result.data.msg,
@@ -90795,7 +90773,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 this.editFormVisible = true;
                 this.editForm = Object.assign({}, row);
                 //  绑定权限节点已选中
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["k" /* getMenuPermissionListByRoleId */])({ roleId: row.id }).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["j" /* getMenuPermissionListByRoleId */])({ roleId: row.id }).then(function (result) {
                     _this2.$refs.tree.setCheckedNodes(result.data);
                 });
             } else {
@@ -90827,7 +90805,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         params.permissionList = _this3.$refs.tree.getCheckedKeys();
 
                         if (params.id != 0) {
-                            obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["f" /* editRole */])(params);
+                            obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["e" /* editRole */])(params);
                         } else {
                             obj = Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["b" /* addRole */])(params);
                         }
@@ -90864,7 +90842,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this4.listLoading = true;
                 //NProgress.start();
                 var params = { ids: row.id };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["p" /* removeRole */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["o" /* removeRole */])(params).then(function (result) {
                     _this4.listLoading = false;
                     //NProgress.done();
                     _this4.$message({
@@ -90891,7 +90869,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this5.listLoading = true;
                 //NProgress.start();
                 var params = { ids: ids };
-                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["p" /* removeRole */])(params).then(function (result) {
+                Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["o" /* removeRole */])(params).then(function (result) {
                     _this5.listLoading = false;
                     //NProgress.done();
                     _this5.$message({
@@ -90908,7 +90886,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         getPermissionList: function getPermissionList() {
             var _this6 = this;
 
-            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["j" /* getMenuPermissionList */])().then(function (result) {
+            Object(__WEBPACK_IMPORTED_MODULE_1__api_api__["i" /* getMenuPermissionList */])().then(function (result) {
                 _this6.permissionList = result.data;
             });
         }

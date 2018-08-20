@@ -20,7 +20,11 @@ class PublicController extends AdminController
      */
     public function home()
     {
-        return view($this->templetePrefix.'home');
+        $userInfo = AdminUserFacade::getCurrentLogonUserInfo()->toArray();
+        $data = [
+            'userInfo' => $userInfo,
+        ];
+        return view($this->templetePrefix.'home', ['data'=>$data]);
     }
 
     /**

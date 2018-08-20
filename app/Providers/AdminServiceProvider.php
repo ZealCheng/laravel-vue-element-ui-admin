@@ -33,10 +33,6 @@ class AdminServiceProvider extends ServiceProvider
             return new \App\Repositories\Admin\MenuRepository();
         });
 
-        $this->app->singleton('AdminRole', function ($app){
-            return new \App\Repositories\Admin\RoleRepository();
-        });
-
         $this->app->singleton('AdminUser', function ($app){
             return new \App\Repositories\Admin\UserRepository();
         });

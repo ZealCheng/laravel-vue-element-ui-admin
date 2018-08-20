@@ -20,13 +20,6 @@ interface InterAdminRepository
     public function getMsg();
 
     /**
-     * 各个服务需实现自己的分页方法
-     * @param Request $request
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
-     */
-    public function getPaginateData(Request $request);
-
-    /**
      * 根据id号批量删除
      * @param array $ids
      * @return mixed

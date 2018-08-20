@@ -35,7 +35,7 @@ let AdminRouter = {
             name: '系统管理',
             iconCls: 'fa el-icon-setting', //图标样式class
             children: [
-                { path: '/user', component: AdminUser, name: '后台用户管理', iconCls: 'el-icon-message'},
+                { path: '/Team/index', component: AdminUser, name: '后台用户管理', iconCls: 'el-icon-message'},
                 { path: '/menu', component: Menu, name: '后台菜单管理', iconCls: 'el-icon-menu'},
                 { path: '/role', component: Role, name: '后台角色管理', iconCls: 'el-icon-menu'},
             ]

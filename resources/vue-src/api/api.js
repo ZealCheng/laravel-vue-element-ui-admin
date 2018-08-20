@@ -19,7 +19,7 @@ export const checkRolePermission = params => { return axios.post(`${base}/basic/
 //  登录接口
 export const requestLogin = params => { return axios.post(`${base}/login`, params).then(res => res.data); };
 
-export const requestLogout = params => { return axios.post(`${base}/logout`, params).then(res => res.data); };
+export const requestLogout = params => { return axios.get(`${base}/logout`, {params: params}).then(res => res.data); };
 /**
  * 后台用户管理请求接口
  * @param params

@@ -2,9 +2,7 @@
 
 Route::get('/', 'PublicController@home');
 
-Route::get('login', 'LoginController@login')->name('admin.login');
-Route::post('login', 'LoginController@login')->name('admin.login');
-Route::post('logout', 'LoginController@logout');
+Route::get('logout', 'LoginController@logout');
 
 //  获取前端菜单展示
 Route::get('basic/getMenuList', 'MenuController@getMenuList');
@@ -25,7 +23,7 @@ Route::get('basic/getRoleListByUserId', 'RoleController@getRoleListByUserId');
 Route::post('basic/checkRolePermission', 'UserController@checkRolePermission');
 
 //  'auth.admin:admin'
-Route::group(['middleware' => ['auth.admin:admin']], function ($router) {
+Route::group([], function ($router) {
 //    $router->get('/', ['middleware'=>'permission:systems.index', 'uses'=>'AdminController@index']);
     $router->get('/dash', function () {
         echo '你已经登陆';

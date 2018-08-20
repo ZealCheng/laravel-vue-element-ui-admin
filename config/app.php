@@ -167,6 +167,12 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,   // 错误调试
+        Zizaco\Entrust\EntrustServiceProvider::class,   //  权限角色
+        Gstzy\CasAuth\CasAuthServiceProvider::class, # Cas登录服务
+        Gstzy\CasAuth\CasLogServiceProvider::class, # 日志服务
+
 
         /*
          * Application Service Providers...
@@ -176,14 +182,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\AdminServiceProvider::class, //  后台基础服务注册
 
-        HieuLe\Active\ActiveServiceProvider::class,
-
-        Barryvdh\Debugbar\ServiceProvider::class,   // 错误调试
-
-        Zizaco\Entrust\EntrustServiceProvider::class,   //  权限角色
-
-        \App\Providers\AdminServiceProvider::class, //  后台基础服务注册
     ],
 
     /*
@@ -244,6 +244,8 @@ return [
         'AdminRole' => App\Facades\AdminRoleFacade::class,  //  后台权限
 
         'AdminUser' => App\Facades\AdminUserFacade::class,  //  后台用户
+
+        'CasLog' => \Gstzy\CasAuth\Facades\CasLog::class,
     ],
 
 ];

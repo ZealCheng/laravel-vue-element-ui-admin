@@ -15,6 +15,9 @@
 <div id="app">
 
 </div>
+<script type="text/javascript">
+  var $userInfo = {!! json_encode($data['userInfo']) !!};
+</script>
 <script src="{{ asset('js/admin.js') }}"></script>
 <!-- built files will be auto injected -->
 </body>

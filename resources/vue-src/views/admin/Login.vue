@@ -23,7 +23,7 @@
             return {
                 logining: false,
                 ruleForm2: {
-                    email: 'fengyan@mail.com',
+                    email: 'your@mail.com',
                     password: '123456'
                 },
                 rules2: {

@@ -25,18 +25,18 @@
         <el-col :span="24" class="main">
                 <!--导航菜单-->
             <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :router="true" :unique-opened="true">
-                <el-submenu :index="item.path" v-for="(item, key) in menuList" :key="item.id" v-if="item.children">
+                <el-submenu :index="item.request_uri" v-for="(item, key) in menuList" :key="item.id" v-if="item.children">
                     <template slot="title">
-                        <i :class="item.iconCls"></i>
+                        <i :class="['fa', item.css]"></i>
                         <span slot="title">{{item.name}}</span>
                     </template>
                     <el-menu-item-group v-if="item.children" v-for="(child, key) in item.children" :key="child.id">
-                        <el-menu-item :index="child.path">{{child.name}}</el-menu-item>
+                        <el-menu-item :index="child.request_uri">{{child.name}}</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
 
-                <el-menu-item :index="item.path" v-else="item.children">
-                    <i :class="item.iconCls"></i>
+                <el-menu-item :index="item.request_uri" v-else="item.children">
+                    <i :class="['fa', item.css]"></i>
                     <span slot="title">{{item.name}}</span>
                 </el-menu-item>
             </el-menu>
@@ -68,9 +68,9 @@
                 abc:'test',
                 isCollapse: true,
 
-                sysName:'Laravel-Vue-Admin',
-                sysUserName: '',
-                sysUserAvatar: '',
+                sysName:'固生堂运营管理后台',
+                sysUserName: $userInfo.name,
+                sysUserAvatar: '/images/user.jpg',
 
                 form: {
                     name: '',
@@ -104,20 +104,7 @@
                 this.$confirm('确认退出吗?', '提示', {
                     //type: 'warning'
                 }).then(() => {
-                    this.listLoading = true;
-                    //NProgress.start();
-                    requestLogout({}).then((result) => {
-                        this.listLoading = false;
-                        //NProgress.done();
-                        this.$message({
-                            message: result.msg,
-                            type: result.type
-                        });
-                        if (result.code == 0) {
-                            sessionStorage.removeItem('user');
-                            _this.$router.push('/login');
-                        }
-                    });
+                    window.location.href="/logout";
                 }).catch(() => {
 
                 });
@@ -133,18 +120,13 @@
             //  检测单个或多个按钮的权限验证
             checkRolePermissionByUser (permissionList) {
                 var params = {permissionList: permissionList};
-                checkRolePermission(params).then((result) => {
-                    this.authorizatioList = result.data;
-                });
+
+                for(var p in permissionList){
+                    this.authorizatioList[p] = 1;
+                }
             }
         },
         mounted() {
-            var user = sessionStorage.getItem('user');
-            if (user) {
-                user = JSON.parse(user);
-                this.sysUserName = user.name || '';
-                this.sysUserAvatar = user.avatar || 'https://raw.githubusercontent.com/taylorchen709/markdown-images/master/vueadmin/user.png';
-            }
 
             //  获取menuList
             getMenuList({}).then((result) => {
