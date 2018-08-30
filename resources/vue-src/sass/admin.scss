@@ -28,7 +28,7 @@ body {
   line-height: 40px;
 }
 .el-menu-item-group__title {
-  padding-bottom: 15px;
+  padding-top: 10px;
 }
 
 .toolbar {
@@ -113,7 +113,7 @@ body {
     .logo {
       //width:230px;
       height:60px;
-      font-size: 22px;
+      font-size: 20px;
       padding-left:20px;
       padding-right:20px;
       border-color: rgba(238,241,146,0.3);
@@ -146,14 +146,21 @@ body {
   .main {
     display: flex;
     // background: #324057;
-    position: absolute;
+    //position: absolute;
     top: 60px;
     bottom: 0px;
-    overflow: hidden;
 
     .el-menu-vertical-demo:not(.el-menu--collapse) {
       width: 230px;
       min-height: 400px;
+      //overflow-y: auto;
+    }
+    .el-menu-vertical-demo .menu-icon {
+      min-width: 30px;
+      margin-right: 2px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: normal;
     }
     .content-container {
       // background: #f1f2f7;
@@ -163,7 +170,7 @@ body {
       // top: 0px;
       // bottom: 0px;
       // left: 230px;
-      overflow-y: scroll;
+      //overflow-y: auto;
       padding: 20px;
       .breadcrumb-container {
         //margin-bottom: 15px;
