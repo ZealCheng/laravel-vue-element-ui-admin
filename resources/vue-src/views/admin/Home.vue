@@ -27,7 +27,7 @@
             <el-menu :default-active="$route.path" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" :router="true" :unique-opened="true">
                 <el-submenu :index="item.path" v-for="(item, key) in menuList" :key="item.id" v-if="item.children">
                     <template slot="title">
-                        <i :class="item.iconCls"></i>
+                        <i :class="['menu-icon', item.iconCls]"></i>
                         <span slot="title">{{item.name}}</span>
                     </template>
                     <el-menu-item-group v-if="item.children" v-for="(child, key) in item.children" :key="child.id">
